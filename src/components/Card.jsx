@@ -1,21 +1,20 @@
-import avatar from "../assets/profile-thumbnail.png";
+import styles from './Card.module.scss';
 
-export default function Card() {
+export default function Card({avatar, user, handle, desc}) {
 
   return (
-    <article className="card">
-      <header className="card-header">
-        <img className="user-avatar" src={avatar} alt="User Avatar" />
-        <div className="user-info">
-          <div><p className="user-name truncate">Sarah Dole</p>
+    <article className={styles.card}>
+      <header className={styles["card-header"]}>
+        <img className={styles["user-avatar"]} src={avatar} alt={`A picture of ${user}`} />
+        <div className={styles["user-info"]}>
+          <div><p className={`${styles["user-name"]} ${styles.truncate}`}>{user}</p>
           </div>
-          <div><p className="user-handle truncate">@sarahdole</p></div>
+          <div><p className={`${styles["user-handle"]} ${styles.truncate}`}>{handle}</p></div>
         </div>
 
       </header>
-      <section className="card-content">
-        <p>I've been searching for high-quality abstract images for my design projects, and I'm thrilled to have found
-           this platform. The variety and depth of creativity are astounding!</p>
+      <section className={styles["card-content"]}>
+        <p>{desc}</p>
       </section>
     </article>
   );
